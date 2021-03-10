@@ -24,8 +24,8 @@ class StockDataManager:
         else:
             print('Issue getting PEG ratio')
 
-        num = 0
-
+        # num = 0
+        #
         # for table in tables:
         #     print(num)
         #     print(table.getText())
@@ -36,5 +36,18 @@ class StockDataManager:
             print(f'The Book price is {book_price}')
         else:
             print('Issue getting Price/book value')
+
+        if '52-week change' in tables[20].getText():
+            year_change = tables[21].getText()
+            print(f'The year change for {ticker} is {year_change}')
+        else:
+            print('Issue getting the year change')
+
+        if 'S&P500 52-week change' in tables[22].getText():
+            sp_year_change = tables[23].getText()
+            print(f'The year change for S&P 500 is {sp_year_change}')
+        else:
+            print('Issue getting the S&P 500 year change')
+
 
         return peg_ratio, book_price
