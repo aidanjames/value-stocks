@@ -12,6 +12,8 @@ class StockDataManager:
         yahoo_finance_url = f'https://uk.finance.yahoo.com/quote/{stock_ticker}/key-statistics?p={stock_ticker}'
         peg_ratio = ''
         book_price = ''
+        year_change = ''
+        sp_year_change = ''
 
         response = requests.get(yahoo_finance_url)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -50,4 +52,4 @@ class StockDataManager:
             print('Issue getting the S&P 500 year change')
 
 
-        return peg_ratio, book_price
+        return peg_ratio, book_price, year_change, sp_year_change
